@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+
+{%block styles%}
+    <style>
+        .post{
+            margin-bottom: 40px;
+        }
+    </style>
+{%endblock%}
+
+
+{%block main%}
+
+    <div class="row">
+        
+        <div class="col-12">
+            <h2 style="margin-bottom: 50px;" class='border-bottom'>{{title}}</h2>
+            {%if posts|length > 0 %}
+                {%for post in posts%}
+                    <div class="row post border-bottom" >
+                        <div class="col-8">
+                            <h4>
+                                {{post.title}}
+                            </h4>
+                            <div class="container infoHolder leftScroll">
+                                {%for paragraph in post.info.split('\n')%}
+                                    <p>
+                                        {{paragraph}}
+                                    </p>
+                                {%endfor%}
+                            </div>
+                            
+                        </div>
+                        <div class="col-4 imageHolder">
+                            {%for img in post.images%}
+                                <img class="previewImage border" src="data:image/png;base64,{{img.data}}">
+                            {%endfor%}
+                        </div>
+                    </div>
+                {%endfor%}
+            {%else%}
+                <div class="row">
+                    <p>
+                        К сожалению, тут пока ничего нет
+                    </p>
+                </div>
+            {%endif%}
+        </div>
+        
+    </div>
+    
+{%endblock%}
+
+{%block scripts%}
+    
+{%endblock%}

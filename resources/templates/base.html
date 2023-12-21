@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASK</title>
+    <link href="css/bootstrap.min.css"  rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/canvasjs.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    {%block links%}
+    {%endblock%}
+</head>
+<style>
+    .previewImage{
+        width:100%;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+    .imageHolder{
+        max-height:100% !important;
+        overflow-y: auto;
+    }
+    
+    .post{
+        height: 330px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .leftScroll{
+        direction:rtl;
+    }
+    .leftScroll>*{
+        direction:ltr;
+    }
+    .infoHolder{
+        max-height: 260px;
+        overflow-y: auto;
+        
+    }
+</style>
+{%block styles%}
+{%endblock%}
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 fixed-top" style="padding-left:80px; padding-right:80px; margin-bottom: 40px; background: linear-gradient(27deg, rgba(255,255,255,1) 0%, rgba(142,15,238,1) 48%, rgba(115,231,255,1) 100%) !important">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" style="font-size: 21px; letter-spacing: 3px;" href="/main">ASK</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/main">Главная</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/news">Исследования</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="/contacts">Контакты</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" action="/search" method="POST" enctype="multipart/form-data">
+              <input required class="form-control me-2" name="targets" type="search" placeholder="Поиск тут..." aria-label="Поиск тут...">
+              <button class="btn btn-outline-light" type="submit">Искать!</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container " style="position: relative; top:90px !important">
+        {%block main%}
+        {%endblock%}
+      </div>
+      <div class="row bg-light" style="width:100%; margin:0; margin-top: 100px; padding:50px; bottom:0">
+        
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="/main" class="nav-link px-2 text-body-light">Главная</a></li>
+            <li class="nav-item"><a href="/news" class="nav-link px-2 text-body-light">Исследования</a></li>
+            <li class="nav-item"><a href="/contacts" class="nav-link px-2 text-body-light">Контакты</a></li>
+          </ul>
+          <p class="text-center text-body-light">© 2023 ASK, СФУ</p>
+        
+      </div>
+      
+</body>
+{%block scripts%}
+{%endblock%}
+</html>
+

@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{%block styles%}
+    
+{%endblock%}
+
+
+{%block main%}
+
+    <div class="row">
+        
+        <div class="col-12">
+            <div class="row" style="margin-bottom: 30px;">
+                <div class="col-7">
+                    <img src="files/ask2.png" style="width:120%!important">
+                </div>
+                <div class="col-5 d-flex justify-content-center align-items-center " style="font-size: 21px;">
+                    Добро пожаловать в ASK - вашего надежного партнера в инновационных решениях! С более чем 20-летним опытом в индустрии, наша компания с гордостью является лидером в области разработки программно-аппаратных решений.<br><br>
+                    Присоединяйтесь к нам, и давайте вместе создадим будущее, в котором инновации и технологии станут ключевыми катализаторами вашего успеха. ASK - ваш путь к передовым решениям!
+                </div>
+            </div>
+            <h2 style="margin-bottom: 50px;">{{title}}</h2>
+            {%for post in posts%}
+                <div class="row post border-bottom" >
+                    <div class="col-8">
+                        <h4>
+                            {{post.title}}
+                        </h4>
+                        <div class="container infoHolder leftScroll">
+                            {%for paragraph in post.info.split('\n')%}
+                                <p>
+                                    {{paragraph}}
+                                </p>
+                            {%endfor%}
+                        </div>
+                        
+                    </div>
+                    <div class="col-4 imageHolder">
+                        {%for img in post.images%}
+                            <img class="previewImage border" src="data:image/png;base64,{{img.data}}">
+                        {%endfor%}
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+        
+    </div>
+    
+{%endblock%}
+
+{%block scripts%}
+    
+{%endblock%}
